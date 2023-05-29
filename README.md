@@ -12,7 +12,8 @@ N/A
 
 This website can be used to generate a random password of any desired length from 8 to 128 characters. A list of criteria is prompted to the user which will decide what characters are allowed in the generated password.
 
-![password generator website](https://github.com/HiZapollo/Password-Generator/images/passgen)
+![password generator website](https://github.com/HiZapollo/Password-Generator/assets/129823817/e1d94cb6-cba3-451d-b9b5-472491d87ece)
+
 
 
 [Webpage can be visited here.](https://hizapollo.github.io/Password-Generator/)
