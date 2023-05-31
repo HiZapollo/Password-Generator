@@ -9,6 +9,15 @@ var specials = " !\"#$%&'()*+,-./:;<=>?@[]^_`{|}~"
 function generatePassword(){
   //Prompts for each of the criteria
   var length = prompt("Enter a password length between 8 and 128 characters: ")
+
+  if (length < 8){//if the user chooses a length under 8, alert and restart
+    alert("ERROR: Length must be higher than 8 characters! Try again.");
+    return "Try Again: Can't be under 8 characters.";
+  } if (length > 128){//if the user chooses a length over 128, alert and restart
+    alert("ERROR: Length must be lower than 128 characters! Try again.");
+    return "Try Again: Can't be over 128 characters.";
+  } 
+
   var haveUpper = confirm("Include Uppercase Letters?")
   var haveLower = confirm("Include Lowercase Letters?")
   var haveNum = confirm("Include Numbers?")
@@ -17,11 +26,7 @@ function generatePassword(){
   //Empty password string, and empty choices string, which will include the criteria based off of input
   var password = ''
   var choices = ''
-  if (length < 8){//if the user chooses a length under 8, set length to 8
-    length = 8
-  } if (length > 128){//if the user chooses a length over 128, set length to 128
-    length = 128
-  } 
+
   //adds the criteria to the choices
   if(haveLower){
     choices += letters
@@ -31,8 +36,9 @@ function generatePassword(){
     choices += numbers
   } if (haveSpecial){
     choices += specials
-  } if (!haveLower && !haveUpper && !haveNum && !haveSpecial){//if none were chosen, rather then starting an infinite loop of nothing, add lowercase letters to the choices
-    choices += letters
+  } if (!haveLower && !haveUpper && !haveNum && !haveSpecial){//if none were chosen, alert and restart
+    alert("ERROR: Must choose at least one criteria! Try again.");
+    return "Try Again: Please select criteria.";
   }
   
   //Loop that will run until the password is the desired length, chooses a random character from choices and adds it to password
